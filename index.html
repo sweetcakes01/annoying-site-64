@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html><!--
+  The Annoying Site 64
+ https://annoying-site-64.vercel.app/
+
+--><html><head>
   <meta charset="UTF-8">
   <meta name="theme-color" content="#fff" class="theme-color">
-  <title>The Annoying Site 64</title>
   <style>
     html, body {
       width: 100%;
@@ -65,72 +66,18 @@
   <div class="logout-messages"></div>
 </template>
 
+<script src="js/index.js"></script>
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-3898076-24"></script>
 <script>
-  const SCREEN_WIDTH = window.screen.availWidth;
-  const SCREEN_HEIGHT = window.screen.availHeight;
-  const WIN_WIDTH = 480;
-  const WIN_HEIGHT = 360;
-  const VELOCITY = 15;
-  const MARGIN = 15;
-  const TOP_MARGIN = 50;
-  const TICK_LENGTH = 50;
-
-  const HIDDEN_STYLE = 'position: fixed; width: 1px; height: 1px; overflow: hidden; top: -10px; left: -10px;';
-  const TOTAL_TABS = 25;
-  const MAX_DELAY = 5000; // Maximum delay in milliseconds (5 seconds)
-
-  const PHRASES = [
-    'The wheels on the bus go round and round...',
-    'Dibidi ba didi dou dou, Di ba didi dou...',
-    'abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz'
-  ];
-
-  /**
-   * Function to open a tab after a random delay
-   */
-  function openTabWithDelay(url, delay) {
-    setTimeout(() => {
-      window.open(url, '_blank');
-    }, delay);
+  window.dataLayer = window.dataLayer || []
+  function gtag () {
+    window.dataLayer.push(arguments)
   }
-
-  /**
-   * Open 25 tabs with random speeds
-   */
-  function openTabsRandomly() {
-    for (let i = 0; i < TOTAL_TABS; i++) {
-      const randomDelay = Math.floor(Math.random() * MAX_DELAY);
-      openTabWithDelay('https://annoying-site-64.vercel.app', randomDelay);
-    }
-  }
-
-  /**
-   * Speak the given phrase using text-to-speech.
-   */
-  function speak(phrase) {
-    const msg = new SpeechSynthesisUtterance(phrase || PHRASES[Math.floor(Math.random() * PHRASES.length)]);
-    window.speechSynthesis.speak(msg);
-  }
-
-  /**
-   * Start the annoying behavior when spacebar is held for 3 seconds
-   */
-  let spaceTimer;
-  document.body.addEventListener('keydown', (e) => {
-    if (e.code === 'Space') {
-      spaceTimer = setTimeout(() => {
-        speak('That was a mistake!');
-        openTabsRandomly();
-      }, 3000);
-    }
-  });
-
-  document.body.addEventListener('keyup', (e) => {
-    if (e.code === 'Space') {
-      clearTimeout(spaceTimer);
-    }
-  });
+  gtag('js', new Date())
+  gtag('config', 'UA-3898076-24')
 </script>
 
-</body>
-</html>
+
+
+</body></html>
